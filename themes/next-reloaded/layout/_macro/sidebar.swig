@@ -37,6 +37,10 @@
         {{- next_inject('sidebar') }}
       </div>
 
+      <div id="music163player">
+          <iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width=298 height=52 src="//music.163.com/outchain/player?type=0&id=4865282809&auto=1&height=32"></iframe>
+      </div>
+
       {%- if theme.back2top.enable and theme.back2top.sidebar %}
         <div class="back-to-top motion-element">
           <i class="fa fa-arrow-up"></i>
@@ -44,20 +48,20 @@
         </div>
       {%- endif %}
 
+  {% if site.tags.length > 1 %}
+  <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcloud.js') }}"></script>
+  <script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcanvas.js') }}"></script>
+  <div class="widget-wrap">
+      <h3 class="widget-title">Tag Cloud</h3>
+      <div id="myCanvasContainer" class="widget tagcloud">
+          <canvas width="250" height="250" id="resCanvas" style="width:100%">
+              {{ list_tags() }}
+          </canvas>
+      </div>
+  </div>
+  {% endif %}
+
     </div>
   </aside>
   <div id="sidebar-dimmer"></div>
 {% endmacro %}
-
-{% if site.tags.length > 1 %}
-<script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcloud.js') }}"></script>
-<script type="text/javascript" charset="utf-8" src="{{ url_for('/js/tagcanvas.js') }}"></script>
-<div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div id="myCanvasContainer" class="widget tagcloud">
-        <canvas width="250" height="250" id="resCanvas" style="width:100%">
-            {{ list_tags() }}
-        </canvas>
-    </div>
-</div>
-{% endif %}

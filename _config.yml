@@ -5,7 +5,7 @@
 # Site
 title: qier的自留地
 subtitle: 摸鱼ing
-description: 
+description: long may the sun shine
 keywords:
 author: Qierr
 language: zh-CN
@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -111,3 +111,30 @@ deploy:
   type: git
   repository: https://github.com/qier21/qier21.github.io.git
   branch: master
+#pet
+live2d:
+  enable: true
+  scriptFrom: local
+  pluginRootPath: live2dw/
+  pluginJsPath: lib/
+  pluginModelPath: assets/
+  tagMode: false
+  debug: false
+  model:
+    use: live2d-widget-model-koharu ## 宠物依赖包的名字
+  display:
+    position: right ## 出现位置
+    width: 150
+    height: 300
+  mobile:
+    show: true
+  react:
+    opacity: 0.7
+# hexo-tag-cloud
+tag_cloud:
+    textFont: Trebuchet MS, Helvetica
+    textColor: '#333'
+    textHeight: 25
+    outlineColor: '#E2E1D1'
+    maxSpeed: 0.1
+    pauseOnSelected: true # true 意味着当选中对应 tag 时,停止转动
