@@ -3,24 +3,17 @@
   <entry>
     <title>Linux内核学习笔记(一)--内存寻址</title>
     <url>/2020/04/05/38131/</url>
-    <content><![CDATA[]]></content>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/2020/04/05/16107/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+    <content><![CDATA[<p>​        在去年就打算维护一个个人博客用于记录自己遇到的坑跟一些学习心得了，一方面是将一些容易遗忘的信息碎片沉淀到网络的海洋之中，另一方面也是想通过这里监督自己学习吧。没想到一直鸽了到现在。说实话，虽然主要是因为懒癌迟迟未付诸行动，但是我也常常困惑，又有什么东西是我所能沉淀于这茫茫大海的呢？鲸在海中死亡后最终沉到到海底成为大海的养分，而在网络中，众多个人博客站点所承载到信息碎片也给这片大海中所需要的人带来了养分吧，虽然现在我的知识体系还很贫弱，但也希望积累起来，能够为所需要的人带来帮助。</p>
+<p>​        这系列的文章主要是在读<em>《深入了解Linux内核》</em>这本书时做的一些笔记，每看完一部分会尝试整理到这里，不可避免会有一些谬误跟理解不到位的地方，如果你有什么看法或建议，欢迎给我留言。</p>
+<h2 id="分段与分页"><a href="#分段与分页" class="headerlink" title="分段与分页"></a>分段与分页</h2><h4 id="硬件中的分段"><a href="#硬件中的分段" class="headerlink" title="硬件中的分段"></a>硬件中的分段</h4><p>==========================施工中===================================</p>
 ]]></content>
+      <categories>
+        <category>学习笔记</category>
+      </categories>
+      <tags>
+        <tag>OS</tag>
+        <tag>Linux</tag>
+        <tag>Linux内核</tag>
+      </tags>
   </entry>
 </search>
