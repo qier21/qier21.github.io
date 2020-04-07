@@ -16,8 +16,8 @@
 <p><img src="/2020/04/05/38131/logic2phy.png" alt="逻辑地址转换"></p>
 </li>
 </ul>
-<p>改流程在此不多加赘述</p>
-<h4 id="逻辑地址"><a href="#逻辑地址" class="headerlink" title="逻辑地址"></a>逻辑地址</h4><p>一个逻辑地址由两部分组成： <strong>段标识符</strong>（16位，又称段选择符） + <strong>段内偏移</strong>（32位）</p>
+<p>该流程在此不多加赘述</p>
+<h3 id="逻辑地址"><a href="#逻辑地址" class="headerlink" title="逻辑地址"></a>逻辑地址</h3><p>一个逻辑地址由两部分组成： <strong>段标识符</strong>（16位，又称<strong>段选择符</strong>） + <strong>段内偏移</strong>（32位）</p>
 <p><img src="/2020/04/05/38131/%E6%AE%B5%E9%80%89%E6%8B%A9%E7%AC%A6.png" alt="段选择符"></p>
 <p>为了快速找到段选择符，处理器提供段寄存器（cs,ss,ds,es,fs和gs）用于存放段选择符</p>
 <p>3个专用寄存器：</p>
@@ -42,7 +42,7 @@
 </tr>
 </tbody></table>
 <p><em>\</em>cs寄存器中还有一个两位的字段用于标识CPU当前特权级（内核态、用户态）*</p>
-<h4 id="段描述符"><a href="#段描述符" class="headerlink" title="段描述符"></a>段描述符</h4><p>每个段由一个<strong>段描述符</strong>（8字节）表示，它描述了段的特征，存放于<strong>GDT</strong>或<strong>LDT</strong>中</p>
+<h3 id="段描述符"><a href="#段描述符" class="headerlink" title="段描述符"></a>段描述符</h3><p>每个段由一个<strong>段描述符</strong>（8字节）表示，它描述了段的特征，存放于<strong>GDT</strong>或<strong>LDT</strong>中</p>
 <p><em>（*GDT在主存中大小和地址存放于gdtr控制寄存器 LDT地址及大小则存放于ldtr控制寄存器）</em></p>
 <p><em>段描述符各字段含义：</em></p>
 <table>
@@ -89,7 +89,32 @@
 <td>被Linux忽略</td>
 </tr>
 </tbody></table>
-<p>=============================博主摸鱼去啦，缓慢施工中===================================</p>
+<h4 id="快速访问段描述符"><a href="#快速访问段描述符" class="headerlink" title="快速访问段描述符"></a>快速访问段描述符</h4><p><img src="/2020/04/05/38131/%E5%BF%AB%E9%80%9F%E8%AE%BF%E9%97%AE%E6%AE%B5%E6%8F%8F%E8%BF%B0%E7%AC%A6.png" alt="快速访问段描述符"></p>
+<p>为了加速逻辑地址到线性地址的转换，80x86处理器提供一种非编程的寄存器供6个可编程段寄存器使用。每个非编程寄存器含<strong>8字节</strong>段描述符。每当一个段选择符被装入段寄存器，相应段描述法就由内存装入到对应的非编程寄存器。相当于做了一层缓存，减少了对GDT或LDT的访问。当段寄存器内容改变时，才有必要再次访问GDT或LDT。</p>
+<p><em>段选择符字段</em></p>
+<table>
+<thead>
+<tr>
+<th>字段名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>index</td>
+<td>指定放在GDT或LDT中相应段描述符的入口</td>
+</tr>
+<tr>
+<td>TI</td>
+<td>TI=0:段描述符在GDT中，TI=1:段描述符在LDT中</td>
+</tr>
+<tr>
+<td>RPL</td>
+<td>请求者特权级：相应段选择符装入cs时指示出当前cpu特权级，也可以用于访问数据段时削弱处理器特权级</td>
+</tr>
+</tbody></table>
+<p><em>段描述符在GDT或LDT中相对位置由段选择符高13位乘8得出（一个段描述符8字节长）</em></p>
+<p><em>\</em>GDT第一项总为0（用于确保无效化空段选择符逻辑地址，以引起一个处理器异常）。GDT中段描述符最大数目为8191，即 <img src="http://latex.codecogs.com/gif.download?%5Csmall%20%242%5E%7B13%7D-1%24" alt="2^{13}-1">*</p>
+<h4 id="分段单元"><a href="#分段单元" class="headerlink" title="分段单元"></a>分段单元</h4><p>=============================博主摸鱼去啦，缓慢施工中===================================</p>
 ]]></content>
       <categories>
         <category>学习笔记</category>
@@ -98,6 +123,7 @@
         <tag>OS</tag>
         <tag>Linux</tag>
         <tag>Linux内核</tag>
+        <tag>内存管理</tag>
       </tags>
   </entry>
 </search>
